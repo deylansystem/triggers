@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧠 SQL Trainer - Funciones</title>
+  <script src="https://cdn.tailwindcss.com"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+  <style>
+    .drop-target {
+      transition: background-color 0.3s ease;
+    }
+    .code-line::before {
+      content: attr(data-hint);
+      display: block;
+      color: #999;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+    pre.bg-gray-800 {
+      background-color: #000 !important;
+      color: #569cd6 !important;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen p-4 font-sans">
 
+  <!-- Info Bar -->
+  <div class="flex flex-wrap justify-between gap-4 mb-4 text-sm">
+    <div class="flex items-center">
+      🎯 Fase: <span id="phaseText" class="font-semibold ml-1">Crear Función</span>
+    </div>
+    <div class="flex items-center">
+      🧬 Nombre: <span id="functionNameText" class="font-semibold ml-1">Sumar Dos Números</span>
+    </div>
+    <div class="flex items-center">
+      ⏳ Tiempo: <span id="timer" class="font-bold text-red-400 ml-1">60</span>s
+    </div>
+    <div class="flex items-center">
+      🕹️ Nivel:
+      <select id="difficulty" class="ml-1 p-1 bg-gray-700 text-white rounded text-sm">
+        <option value="principiante">Principiante (2 min)</option>
+        <option value="intermedio" selected>Intermedio (1 min)</option>
+        <option value="avanzado">Avanzado (30 seg)</option>
+      </select>
+    </div>
+    <div class="flex items-center">
+      🏆 Puntos: <span id="score" class="font-bold text-green-400 ml-1">0</span>
+    </div>
+  </div>
+
+  <!-- Enunciado -->
+  <div id="enunciado" class="mb-6 p-4 bg-gray-800 shadow rounded font-semibold border border-gray-700">
+    Cargando enunciado...
+  </div>
+
+  <!-- Fragments and Targets -->
+  <div class="flex flex-col md:flex-row gap-4">
+    <div id="fragments" class="md:w-1/3 bg-gray-800 p-4 rounded shadow space-y-2 border border-gray-700"></div>
+    <div class="md:w-2/3 bg-gray-800 p-4 rounded shadow border border-gray-700">
+      <h2 class="font-semibold mb-2">Completa la estructura aquí:</h2>
+      <div id="targets" class="space-y-2"></div>
+    </div>
+  </div>
+
+  <!-- Botón reiniciar -->
+  <button id="restartBtn" class="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-all">🔁 Reiniciar Ejercicio</button>
+
+  <!-- Sonidos -->
+  <audio id="correctSound" src="/sound/button-30.wav" preload="auto"></audio>
+  <audio id="wrongSound" src="/sound/button-10.wav"  preload="auto"></audio>
+
+  <script src"js/functions.js"></script>
+</body>
+</html>
