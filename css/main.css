@@ -1,1 +1,18 @@
-
+.drop-target {
+      transition: background-color 0.3s ease;
+    }
+    .code-line::before {
+      content: attr(data-hint);
+      display: block;
+      color: #999;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+    pre.bg-gray-800 {
+      background-color: #000 !important;
+      color: #569cd6 !important;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: monospace;
+      overflow-x: auto;
+    }
