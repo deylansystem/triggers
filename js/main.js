@@ -304,6 +304,7 @@ const allTriggers = [
           if (dragged === linea.correct) {
             drop.textContent = dragged;
             drop.classList.add("bg-green-900"); // ✅ Ahora es green-900
+            correctSound.play();
             drop.ondrop = null;
             [...fragmentsDiv.children].forEach(el => {
               if (el.textContent === dragged) el.remove();
@@ -313,6 +314,7 @@ const allTriggers = [
             checkCompletion(data);
           } else {
             drop.classList.add("bg-red-100");
+            wrongSound.play();
             setTimeout(() => drop.classList.remove("bg-red-100"), 1000);
           }
         };
